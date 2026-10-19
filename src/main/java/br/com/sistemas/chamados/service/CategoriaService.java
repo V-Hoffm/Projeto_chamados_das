@@ -23,7 +23,7 @@ public class CategoriaService {
 
     @Transactional
     public CategoriaResponse criar(CategoriaRequest dto) {
-        if (repository.existsByName(dto.nome())) {
+        if (repository.existsByNome(dto.nome())) {
             throw new RegraNegocioException("Já existe categoria com o nome " + dto.nome());
         }
         Categoria salva = repository.save(new Categoria(dto.nome(), dto.descricao()));
@@ -43,7 +43,7 @@ public class CategoriaService {
     @Transactional
     public CategoriaResponse atualizar(Long id, CategoriaRequest dto) {
         Categoria categoria = buscarEntity(id);
-        if (repository.existsByNameAndIdNot(dto.nome(), id)) {
+        if (repository.existsByNomeAndIdNot(dto.nome(), id)) {
             throw new RegraNegocioException("Já existe categoria com o nome " + dto.nome());
         }
         categoria.setNome(dto.nome());

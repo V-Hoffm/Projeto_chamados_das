@@ -1,4 +1,4 @@
-package br.com.sistemas;
+package br.com.sistemas.chamados;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
